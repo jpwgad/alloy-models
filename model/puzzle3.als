@@ -11,8 +11,8 @@ enum Drink {Tea, Orange, Milk, Coffee, Water}
 enum Footwear {Leather, Slipper, LeatherS, BeachS, Platform}
 
 abstract sig House {
-    color: disj Color,
-    left,right: lone House
+    color: disj Color,                      // それぞれの色は違う
+    left,right: lone House                  // 左右にはたかだか１軒の家がある
 }
 one sig House1,House2,House3,House4,House5 extends House {}
 fact 家は一列に並ぶ {
@@ -21,11 +21,11 @@ fact 家は一列に並ぶ {
 }
 
 sig Person {
-    house: disj House,
-    nationality: disj Nationality,
-    pet: disj Pet,
-    drink: disj Drink,
-    footwear: disj Footwear
+    house: disj House,                      // それぞれ別の家に住んでいる
+    nationality: disj Nationality,          // それぞれの国籍は違う
+    pet: disj Pet,                          // それぞれのペットは違う
+    drink: disj Drink,                      // それぞれの飲み物は違う
+    footwear: disj Footwear                 // それぞれの履物は違う
 }
 
 fact {
@@ -49,4 +49,4 @@ fact {
 }
 // 問題：水を飲むのは誰？ シマウマを飼っているのは誰？
 
-run {} for exactly 5 House, exactly 5 Person
+run {} for exactly 5 Person
